@@ -514,9 +514,6 @@
     <None Include="App_Data\V5.DataCollection.db" />
     <None Include="App_Data\V5_DataPublishLog.db" />
     <None Include="Config\lognet4.config" />
-    <None Include="job_scheduling_data_2_0.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
