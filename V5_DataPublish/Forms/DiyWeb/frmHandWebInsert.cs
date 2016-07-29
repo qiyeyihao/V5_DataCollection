@@ -13,6 +13,8 @@ using V5_Utility.Core;
 using V5_DataPublish.Forms.Desk;
 using System.Web.UI.WebControls;
 using V5_Utility.Utility;
+using V5_WinLibs.Utility;
+using V5_WinLibs.Core;
 
 namespace V5_DataPublish.Forms.DiyWeb {
     public partial class frmHandWebInsert : Form {
@@ -130,13 +132,13 @@ namespace V5_DataPublish.Forms.DiyWeb {
                 string baseData = "cmd=sendcontent"
                     + "&username=" + model.UserName
                     + "&userpwd=" + model.UserPwd
-                    + "&title=" + V5_Utility.Core.StringHelper.Instance.UrlEncode(title, model.Encode)
-                    + "&content=" + V5_Utility.Core.StringHelper.Instance.UrlEncode(content, model.Encode)
+                    + "&title=" + StringHelper.Instance.UrlEncode(title, model.Encode)
+                    + "&content=" + StringHelper.Instance.UrlEncode(content, model.Encode)
                     + "&classid=" + classid
-                    + "&classtitle=" + V5_Utility.Core.StringHelper.Instance.UrlEncode(classname, model.Encode)
+                    + "&classtitle=" + StringHelper.Instance.UrlEncode(classname, model.Encode)
                     + "&author=" + string.Empty
                     + "&time=" + nowTime;
-                string md5key = "&md5key=" + V5_Utility.Core.StringHelper.Instance.MD5(baseData, 32).ToLower();
+                string md5key = "&md5key=" + StringHelper.Instance.MD5(baseData, 32).ToLower();
                 string sendUrl = model.Url;
                 string sendData = baseData + md5key;
                 HttpHelper4 http = new HttpHelper4();
@@ -200,7 +202,7 @@ namespace V5_DataPublish.Forms.DiyWeb {
                     + "&username=" + model.UserName
                     + "&userpwd=" + model.UserPwd
                     + "&time=" + nowTime;
-                string md5key = "&md5key=" + V5_Utility.Core.StringHelper.Instance.MD5(baseData, 32).ToLower();
+                string md5key = "&md5key=" + StringHelper.Instance.MD5(baseData, 32).ToLower();
                 string senUrl = model.Url;
                 string sendData = baseData + md5key;
                 HttpHelper4 http = new HttpHelper4();

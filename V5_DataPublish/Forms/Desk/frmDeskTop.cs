@@ -12,7 +12,7 @@ using V5_DataPublish._Class;
 using V5_Utility.Core;
 using V5_DataPublish.Forms.DiyWeb;
 using ScrapySharp.Extensions;
-
+using V5_WinLibs.Core;
 
 namespace V5_DataPublish.Forms.Desk {
     public partial class frmDeskTop : Form {
@@ -113,18 +113,18 @@ namespace V5_DataPublish.Forms.Desk {
                 if (htmlflag) {
                     Regex regcontent = new Regex(@"<!--StartFragment-->([\s\S]*?)<!--EndFragment-->", RegexOptions.IgnoreCase);
                     webContent = regcontent.Match(s1).ToString();
-                    webContent = V5_Utility.Core.StringHelper.Instance.Replace(webContent, "<!--StartFragment-->", "");
-                    webContent = V5_Utility.Core.StringHelper.Instance.Replace(webContent, "<!--EndFragment-->", "");
+                    webContent = StringHelper.Instance.Replace(webContent, "<!--StartFragment-->", "");
+                    webContent = StringHelper.Instance.Replace(webContent, "<!--EndFragment-->", "");
                     try {
                         webTitle = Regex.Match(s1, "<title>.+?</title>", RegexOptions.IgnoreCase | RegexOptions.Multiline).ToString();
-                        webTitle = V5_Utility.Core.StringHelper.Instance.Replace(webTitle, "<title>", "");
-                        webTitle = V5_Utility.Core.StringHelper.Instance.Replace(webTitle, "</title>", "");
+                        webTitle = StringHelper.Instance.Replace(webTitle, "<title>", "");
+                        webTitle = StringHelper.Instance.Replace(webTitle, "</title>", "");
                         if (string.IsNullOrEmpty(webTitle)) {
                             //自动获取标题
                             Regex regUrl = new Regex(@"SourceURL:([\s\S]*?)\r\n", RegexOptions.IgnoreCase);
                             string webUrl = regUrl.Match(s1).ToString();
-                            webUrl = V5_Utility.Core.StringHelper.Instance.Replace(webUrl, "SourceURL:", "");
-                            webUrl = V5_Utility.Core.StringHelper.Instance.Replace(webUrl, "\r\n", "");
+                            webUrl = StringHelper.Instance.Replace(webUrl, "SourceURL:", "");
+                            webUrl = StringHelper.Instance.Replace(webUrl, "\r\n", "");
 
                             var http = new HttpHelper4();
 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using V5_DataPublish._Class;
 using ScrapySharp.Extensions;
 using V5_Utility.Core;
+using V5_WinLibs.Core;
 
 namespace V5_DataPublish.Forms.Desk {
     public partial class frmAutoCreateArticle : V5_DataPublish.BaseForm {

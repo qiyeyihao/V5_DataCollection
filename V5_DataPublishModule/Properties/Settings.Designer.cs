@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace V5_DataPublishModuleEdit.Properties {
+namespace V5_DataPublishModule.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -8,8 +8,8 @@
     <ProjectGuid>{45DF5EAF-C813-4FFB-8BD1-F72D1F5FEA1F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>V5.AutoUpdate</RootNamespace>
-    <AssemblyName>V5.AutoUpdate</AssemblyName>
+    <RootNamespace>V5_AutoUpdate</RootNamespace>
+    <AssemblyName>V5_AutoUpdate</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -42,7 +42,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\Debug\V5.AutoUpdate\</OutputPath>
+    <OutputPath>..\Debug\V5_AutoUpdate\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>

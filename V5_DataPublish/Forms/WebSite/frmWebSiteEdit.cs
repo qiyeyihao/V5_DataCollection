@@ -16,6 +16,7 @@ using V5_Utility.Core;
 using System.Linq;
 using V5_Utility.Utility;
 using System.Web.UI.WebControls;
+using V5_WinLibs.Core;
 
 namespace V5_DataPublish.Forms.WebSite {
     public partial class frmWebSiteEdit : BaseForm {
@@ -314,7 +315,7 @@ namespace V5_DataPublish.Forms.WebSite {
             else if (pt == PublishType.GetClassListOver) {
                 //加入分类
                 List<ModelClassItem> ListModelClassItem = (List<ModelClassItem>)oResult;
-                int WebSiteID = V5_Utility.Core.StringHelper.Instance.SetNumber(this.txtID.Text);
+                int WebSiteID = StringHelper.Instance.SetNumber(this.txtID.Text);
                 DALWebSiteClassList dal = new DALWebSiteClassList();
                 foreach (ModelClassItem item in ListModelClassItem) {
                     dal.InsertClassList(WebSiteID.ToString(),
@@ -357,7 +358,7 @@ namespace V5_DataPublish.Forms.WebSite {
         /// </summary>
         private void Bind_ClassList() {
             DALWebSiteClassList dal = new DALWebSiteClassList();
-            int WebSiteID = V5_Utility.Core.StringHelper.Instance.SetNumber(this.txtID.Text);
+            int WebSiteID = StringHelper.Instance.SetNumber(this.txtID.Text);
             DataSet ds = dal.GetClassList(WebSiteID.ToString());
             if (ds != null && ds.Tables[0].Rows.Count > 0) {
                 DataTable dt = ds.Tables[0];
@@ -402,7 +403,7 @@ namespace V5_DataPublish.Forms.WebSite {
         private int Get_DataViewID() {
             DataGridViewSelectedRowCollection row = this.dataGridView_ClassList.SelectedRows;
             if (row.Count > 0) {
-                return V5_Utility.Core.StringHelper.Instance.SetNumber(row[0].Cells[0].Value.ToString());
+                return StringHelper.Instance.SetNumber(row[0].Cells[0].Value.ToString());
             }
             return 0;
         }

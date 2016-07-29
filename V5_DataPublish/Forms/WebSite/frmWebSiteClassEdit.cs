@@ -9,6 +9,7 @@ using V5_DataPublish._Class;
 using V5_DAL;
 using V5_Utility;
 using V5_Utility.Core;
+using V5_WinLibs.Core;
 
 namespace V5_DataPublish.Forms.WebSite {
     public partial class frmWebSiteClassEdit : V5_DataPublish.BaseForm {
@@ -28,7 +29,7 @@ namespace V5_DataPublish.Forms.WebSite {
                 return;
             }
             DALWebSiteClassList model = new DALWebSiteClassList();
-            int ID = V5_Utility.Core.StringHelper.Instance.SetNumber(this.txtID.Text);
+            int ID = StringHelper.Instance.SetNumber(this.txtID.Text);
             string KeywordList = this.txtKeywordList.Text;
 
             model.ID = ID;
@@ -57,7 +58,7 @@ namespace V5_DataPublish.Forms.WebSite {
         private void frmWebSiteClassEdit_Load(object sender, EventArgs e) {
             if (!string.IsNullOrEmpty(this.OldValue)
                 && this.OldValue != "0") {
-                DALWebSiteClassList model = new DALWebSiteClassList().GetModel(V5_Utility.Core.StringHelper.Instance.SetNumber(
+                DALWebSiteClassList model = new DALWebSiteClassList().GetModel(StringHelper.Instance.SetNumber(
                     this.OldValue
                     ));
                 if (model != null) {

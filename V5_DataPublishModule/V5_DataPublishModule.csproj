@@ -8,8 +8,8 @@
     <ProjectGuid>{E56D112F-6701-406D-8C94-1CAF0FC0192A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>V5_DataPublishModuleEdit</RootNamespace>
-    <AssemblyName>V5_DataPublishModuleEdit</AssemblyName>
+    <RootNamespace>V5_DataPublishModule</RootNamespace>
+    <AssemblyName>V5_DataPublishModule</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Debug\V5.DataPublishModule\</OutputPath>
+    <OutputPath>..\Debug\V5_DataPublishModule\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Release\V5_DataPublishModule\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

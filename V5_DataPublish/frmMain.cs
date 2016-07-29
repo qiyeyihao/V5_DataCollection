@@ -22,6 +22,7 @@ using V5_DataPlugins;
 using V5_Utility.Core;
 using V5_DataPublish._Class.BaiduHelper;
 using V5_Utility.Utility;
+using V5_WinLibs.Core;
 
 namespace V5_DataPublish {
     public partial class frmMain : BaseForm {

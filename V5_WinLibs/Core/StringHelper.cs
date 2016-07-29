@@ -93,6 +93,9 @@ namespace V5_WinLibs.Core {
             return Strings.Replace(source, oldstring, newstring, 1, -1, CompareMethod.Text);
         }
 
+        public string Replace(string source, string oldstring, string newstring) {
+            return Strings.Replace(source, oldstring, newstring, 1, -1, CompareMethod.Text);
+        }
         /// <summary>
         /// 正则表达式查询字符串的内容
         /// </summary>

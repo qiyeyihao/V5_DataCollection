@@ -8,8 +8,8 @@
     <ProjectGuid>{94902BDD-1E20-436B-8462-1BCB35E4D293}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>V5.DataWebBrowser</RootNamespace>
-    <AssemblyName>V5.DataWebBrowser</AssemblyName>
+    <RootNamespace>V5_DataWebBrowser</RootNamespace>
+    <AssemblyName>V5_DataWebBrowser</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -38,7 +38,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\Debug\V5.DataWebBrowser\</OutputPath>
+    <OutputPath>..\Debug\V5_DataWebBrowser\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,7 +54,7 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <OutputPath>..\Release\</OutputPath>
+    <OutputPath>..\Release\V5_DataWebBrowser\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
