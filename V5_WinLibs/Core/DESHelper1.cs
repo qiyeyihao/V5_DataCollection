@@ -10,11 +10,11 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CTU.CommonLib.Security {
+namespace V5_WinLibs.Core {
     /// <summary>
     /// Des对称加密 解密
     /// </summary>
-    public class DESHelper {
+    public class DESHelper1 {
         #region ========加密========
         /// <summary>   
         /// DES加密方法   

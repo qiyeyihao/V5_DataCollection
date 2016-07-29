@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 
-namespace V5.WinControls.DataGrid
+namespace V5_WinControls.DataGrid
 {
     public partial class cCopyDataGridView : DataGridView 
     {

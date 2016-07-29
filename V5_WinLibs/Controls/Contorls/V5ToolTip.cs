@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace V5.WinControls {
+namespace V5_WinControls {
     public partial class V5ToolTip : Button {
 
         private string _Message = string.Empty;

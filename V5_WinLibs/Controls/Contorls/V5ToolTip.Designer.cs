@@ -1,4 +1,4 @@
-﻿namespace V5.WinControls {
+﻿namespace V5_WinControls {
     partial class V5ToolTip {
         /// <summary>
         /// 必需的设计器变量。

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using V5_DataCollection._Class.Common;
 using V5_Model;
 using V5_DataCollection._Class.DAL;
+using V5_WinLibs.Core;
 
 namespace V5_DataCollection.Forms.LeftTree {
     /// <summary>
@@ -49,7 +50,7 @@ namespace V5_DataCollection.Forms.LeftTree {
                 return;
             }
 
-            int ClassID = V5_Utility.Core.StringHelper.Instance.SetNumber(this.txtEditID.Text);
+            int ClassID = StringHelper.Instance.SetNumber(this.txtEditID.Text);
             string TreeClassName = this.txtTreeClassName.Text;
             string TreeClassReadMe = this.txtTreeClassReadMe.Text;
 

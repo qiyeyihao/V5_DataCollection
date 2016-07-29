@@ -7,9 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using V5.WinControls.Pager;
+using V5_WinControls.Pager;
 using V5_DataCollection._Class.DAL;
-using V5_WinUtility.Controls;
 
 namespace V5_DataCollection.Forms.Task.TaskData {
     public partial class frmTaskDataList : Form {

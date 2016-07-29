@@ -10,6 +10,7 @@ using WeifenLuo.WinFormsUI.Docking;
 using V5_DataCollection.Forms.LeftTree;
 using V5_DataCollection.Forms.Task;
 using V5_DataCollection._Class.DAL;
+using V5_WinLibs.Core;
 
 namespace V5_DataCollection.Forms.Docking {
     /// <summary>
@@ -125,7 +126,7 @@ namespace V5_DataCollection.Forms.Docking {
             if (node != this.treeView_TaskList.Nodes[0]
                 || node != this.treeView_TaskList.Nodes[1]) {
                 if (MessageBox.Show("你确定要删除吗?删除会把任务给删除!", "警告!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
-                    int ID = V5_Utility.Core.StringHelper.Instance.SetNumber(node.Tag.ToString());
+                    int ID = StringHelper.Instance.SetNumber(node.Tag.ToString());
                     DALTaskClass dal = new DALTaskClass();
                     dal.Delete(ID);
                     this.Bind_TreeDataList();
@@ -142,7 +143,7 @@ namespace V5_DataCollection.Forms.Docking {
             if (node != this.treeView_TaskList.Nodes[0]
                 || node != this.treeView_TaskList.Nodes[1]) {
                 if (MessageBox.Show("你确定要删除吗?删除会把任务给删除!", "警告!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
-                    int ID = V5_Utility.Core.StringHelper.Instance.SetNumber(node.Tag.ToString());
+                    int ID = StringHelper.Instance.SetNumber(node.Tag.ToString());
                     DALTaskClass dal = new DALTaskClass();
                     dal.Delete(ID);
                     this.Bind_TreeDataList();

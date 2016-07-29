@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace V5.WinControls
+namespace V5_WinControls
 {
     public class V5TabControl : TabControl
     {

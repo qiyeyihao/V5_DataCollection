@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace V5_WinLibs.LRC {
+namespace V5_WinLibs.Security {
     class RsaHelper {
         private void btnCreate_Click(object sender, EventArgs e) {
             /*

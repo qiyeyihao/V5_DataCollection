@@ -6,9 +6,9 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Text.RegularExpressions;
-using V5.WinControls._Class.V5RichTextBox;
+using V5_WinControls._Class.V5RichTextBox;
 
-namespace V5.WinControls
+namespace V5_WinControls
 {
     /// <summary>
     /// RichTextBoxEx is derived from RichTextBox and supports XP Visual Styles.

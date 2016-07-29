@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Data ;
 
 ///功能：自定义datagridview控件
-namespace V5.WinControls.DataGrid
+namespace V5_WinControls.DataGrid
 {
     public partial class cMyDataGridView : DataGridView 
     {

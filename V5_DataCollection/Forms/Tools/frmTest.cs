@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using V5_DataCollection._Class.Common;
-using V5_Utility.Utility;
+using V5_WinLibs.Utility;
 
 namespace V5_DataCollection.Forms.Tools {
     public partial class frmTest : Form {

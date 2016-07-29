@@ -6,8 +6,7 @@ using V5_DataCollection._Class.Common;
 using V5_DataCollection._Class.Gather;
 
 using V5_Model;
-using V5_Utility.Core;
-using V5_Utility.Utility;
+using V5_WinLibs.Core;
 using V5_WinLibs.DBHelper;
 using V5_WinLibs.Utility;
 

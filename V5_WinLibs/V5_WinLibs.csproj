@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\AppRunHelper.cs" />
+    <Compile Include="Core\CacheHelper.cs" />
     <Compile Include="Core\CacheManageHelper.cs" />
     <Compile Include="Core\cFalseOriginalHelper.cs" />
     <Compile Include="Core\cHTMLHelper.cs" />
@@ -132,6 +133,8 @@
     <Compile Include="Core\ImageDownHelper.cs" />
     <Compile Include="Core\IniHelper.cs" />
     <Compile Include="Core\InputHelper.cs" />
+    <Compile Include="Core\RequestHelper.cs" />
+    <Compile Include="Core\ValidatorHelper.cs" />
     <Compile Include="DBHelper\DBObject\IDataBase.cs" />
     <Compile Include="DBHelper\SQLiteHelper.cs" />
     <Compile Include="Ftp\FTPClient.cs" />
@@ -141,7 +144,6 @@
     <Compile Include="Html2Article\Html2Article.cs" />
     <Compile Include="Html2Article\TestHelper.cs" />
     <Compile Include="Html2Article\UrlUtility.cs" />
-    <Compile Include="IDE\Class1.cs" />
     <Compile Include="IDE\DataBase\ColumnInfo.cs" />
     <Compile Include="IDE\DataBase\Db\IDataBase.cs" />
     <Compile Include="IDE\DataBase\Db\MySqlHelper.cs" />
@@ -175,11 +177,14 @@
     <Compile Include="Expand\ListItem.cs" />
     <Compile Include="GetMainContent\DistanceUtility.cs" />
     <Compile Include="GetMainContent\GetMainContentHelper.cs" />
-    <Compile Include="LRC\RsaHelper.cs" />
-    <Compile Include="NewFolder1\DESHelper.cs" />
-    <Compile Include="NewFolder1\ThreadMultiHelper.cs" />
+    <Compile Include="Security\RsaHelper.cs" />
+    <Compile Include="Core\DESHelper1.cs" />
+    <Compile Include="Core\ThreadMultiHelper1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\cPageEncode.cs" />
     <Compile Include="Utility\IniHelper.cs" />
+    <Compile Include="Utility\ListItem.cs" />
+    <Compile Include="Utility\Log4Helper.cs" />
     <Compile Include="Utility\LogHelper.cs" />
     <Compile Include="Utility\OriginalUtility.cs" />
     <Compile Include="Utility\TaskHelper.cs" />
@@ -242,31 +247,9 @@
     <Compile Include="Utility\ThreadMultiHelper.cs" />
     <Compile Include="XmlConfig\DataSourceConfig.cs" />
     <Compile Include="XmlConfig\DataSourceConfigItem.cs" />
-    <Compile Include="XmlDataBase\demo.cs" />
-    <Compile Include="XmlDataBase\Extensions\XElementExtensions.cs" />
-    <Compile Include="XmlDataBase\Extensions\XTextWriterExtensions.cs" />
-    <Compile Include="XmlDataBase\Properties\Resource1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
-    </Compile>
-    <Compile Include="XmlDataBase\XBufferManager.cs" />
-    <Compile Include="XmlDataBase\XChangeItem.cs" />
-    <Compile Include="XmlDataBase\XDatabase.cs" />
-    <Compile Include="XmlDataBase\XDatabaseException.cs" />
-    <Compile Include="XmlDataBase\XIdsManager.cs" />
-    <Compile Include="XmlDataBase\XIndex.cs" />
-    <Compile Include="XmlDataBase\XLogWriter.cs" />
-    <Compile Include="XmlDataBase\XSubmitStatus.cs" />
-    <Compile Include="XmlDataBase\XTaskManager.cs" />
-    <Compile Include="XmlDataBase\XTransaction.cs" />
-    <Compile Include="XmlDataBase\XTransactionManager.cs" />
-    <Compile Include="XmlDataBase\XTypeRegistration.cs" />
-    <Compile Include="XmlDataBase\XUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="readme.txt" />
-    <Content Include="XmlDataBase\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -285,10 +268,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RichTextBox\cRichTextBox.resx">
       <DependentUpon>cRichTextBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XmlDataBase\Properties\Resource1.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

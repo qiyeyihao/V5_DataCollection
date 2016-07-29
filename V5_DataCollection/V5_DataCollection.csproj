@@ -214,6 +214,13 @@
     <Compile Include="Forms\LeftTree\frmLeftTreeClass.Designer.cs">
       <DependentUpon>frmLeftTreeClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Publish\cPublishModuleItem.cs" />
+    <Compile Include="Forms\Publish\frmPublishEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Publish\frmPublishEdit.Designer.cs">
+      <DependentUpon>frmPublishEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Task\TaskData\frmTaskDataEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -382,6 +389,7 @@
     <Compile Include="_Class\DAL\DALDiyWebUrlHelper.cs" />
     <Compile Include="_Class\DAL\DALTaskHelper.cs" />
     <Compile Include="_Class\DataAccessHelper.cs" />
+    <Compile Include="_Class\Publish\PublishHelper.cs" />
     <Compile Include="_Class\PythonExt\PythonExtHelper.cs" />
     <Compile Include="_Class\DAL\DALTask.cs" />
     <Compile Include="_Class\DAL\DALTaskLabel.cs" />
@@ -397,7 +405,6 @@
     <Compile Include="_Class\Model\ModelTaskLabel.cs" />
     <Compile Include="_Class\Model\ModelWebPublishModule.cs" />
     <Compile Include="_Class\PluginUtility.cs" />
-    <Compile Include="_Class\Publish\PublishHelper.cs" />
     <Compile Include="_Class\SpiderView\SpiderViewHelper.cs" />
     <Compile Include="_Class\WebPublishModule\cWebPublishModule.cs" />
     <Compile Include="_Class\WebPublishModule\ModelWebPublishModule.cs" />
@@ -415,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LeftTree\frmLeftTreeClass.resx">
       <DependentUpon>frmLeftTreeClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Publish\frmPublishEdit.resx">
+      <DependentUpon>frmPublishEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Task\DataBaseConfig\frmDataBaseConfigAccess.resx">
       <DependentUpon>frmDataBaseConfigAccess.cs</DependentUpon>

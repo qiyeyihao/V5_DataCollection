@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms ;
 
 ///功能：自定义文本控件，主要用于采集任务日志的显示
-namespace V5.WinControls.DataGrid
+namespace V5_WinControls.DataGrid
 {
     class cMyTextLog : RichTextBox 
     {

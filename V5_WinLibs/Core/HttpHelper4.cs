@@ -8,7 +8,7 @@ using System.IO.Compression;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 
-namespace DotNet4.Utilities {
+namespace V5_WinLibs.Core {
     /// <summary>
     /// Http连接操作帮助类
     /// </summary>

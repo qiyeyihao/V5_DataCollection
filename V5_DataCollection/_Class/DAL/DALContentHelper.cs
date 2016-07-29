@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-
+using V5_WinLibs.Core;
 using V5_WinLibs.DBHelper;
 
 namespace V5_DataCollection._Class.DAL {
@@ -22,7 +22,7 @@ namespace V5_DataCollection._Class.DAL {
             string sql = " Select Count(1) From Content Where HrefSource='" + url + "' ";
             string msg = url;
             object o = SQLiteHelper.ExecuteScalar(LocalSQLiteName,sql);
-            if (o != null && V5_Utility.Core.StringHelper.Instance.SetNumber(o) > 0) {
+            if (o != null && StringHelper.Instance.SetNumber(o) > 0) {
                 return true;
             }
             return false;
@@ -64,7 +64,7 @@ namespace V5_DataCollection._Class.DAL {
         public static DataTable GetContentList(string taskName, int startIndex, int pageSize, ref int sCount) {
             string LocalSQLiteName = "Data\\Collection\\" + taskName + "\\SpiderResult.db";
             string SQL = "Select Count(*) From Content ";
-            sCount = V5_Utility.Core.StringHelper.Instance.SetNumber(SQLiteHelper.ExecuteScalar(LocalSQLiteName,SQL));
+            sCount = StringHelper.Instance.SetNumber(SQLiteHelper.ExecuteScalar(LocalSQLiteName,SQL));
 
             SQL = string.Format("Select * From Content Order By Id Desc Limit {0},{1}", startIndex, pageSize);
             DataTable dt = SQLiteHelper.Query1(LocalSQLiteName,SQL).Tables[0];

@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
 
-namespace V5.WinControls.Pager
+namespace V5_WinControls.Pager
 {
     /// <summary>
     /// ÉêÃ÷Î¯ÍÐ

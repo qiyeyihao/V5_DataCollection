@@ -1,4 +1,4 @@
-﻿namespace V5.WinControls.DataGrid
+﻿namespace V5_WinControls.DataGrid
 {
     partial class cCopyDataGridView
     {

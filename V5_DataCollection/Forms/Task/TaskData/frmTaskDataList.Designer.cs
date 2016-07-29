@@ -1,6 +1,6 @@
 ﻿
 
-using V5.WinControls.Pager;
+using V5_WinControls.Pager;
 
 namespace V5_DataCollection.Forms.Task.TaskData {
     partial class frmTaskDataList {

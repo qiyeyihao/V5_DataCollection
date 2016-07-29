@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Drawing;
 
 ///功能：自定义datagridview中的col类别，主要用于进度显示
-namespace V5.WinControls.DataGrid {
+namespace V5_WinControls.DataGrid {
     public class DataGridViewProgressBarColumn : DataGridViewTextBoxColumn {
 
         public DataGridViewProgressBarColumn() {

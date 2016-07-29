@@ -16,6 +16,7 @@ using System.Diagnostics;
 using V5_DataCollection._Class.Common;
 using V5_DataCollection._Class.DAL;
 using WeifenLuo.WinFormsUI.Docking;
+using V5_WinLibs.Core;
 
 namespace V5_DataCollection {
     public partial class frmMain : Form {

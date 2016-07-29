@@ -112,39 +112,12 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ChangeActionError" xml:space="preserve">
-    <value>在针对对象({0})进行如下操作{1}时发生了异常:{2}</value>
-  </data>
-  <data name="DatabaseClosed" xml:space="preserve">
-    <value>数据库关闭</value>
-  </data>
-  <data name="DatabaseOpened" xml:space="preserve">
-    <value>数据库启动</value>
-  </data>
-  <data name="DeleteObject" xml:space="preserve">
-    <value>删除了一个对象，编号为{0}, 对象为{1}</value>
-  </data>
-  <data name="DeleteObjectError" xml:space="preserve">
-    <value>删除对象{0}时遇到异常: 该对象不存在或者文件不存在</value>
-  </data>
-  <data name="GeneralException" xml:space="preserve">
-    <value>数据库运行期间发生了一般性异常，消息为:{0}</value>
-  </data>
-  <data name="InsertObject" xml:space="preserve">
-    <value>新增了一个对象,编号为:{0},对象为:{1}</value>
-  </data>
-  <data name="QueryObject" xml:space="preserve">
-    <value>进行了对象查询，取得的对象数量是:{0}</value>
-  </data>
-  <data name="TypeConfiguration" xml:space="preserve">
-    <value>完成对类型{0}的配置</value>
-  </data>
-  <data name="UpdateObject" xml:space="preserve">
-    <value>更新了一个对象,编号为:{0},对象为:{1}</value>
-  </data>
+  <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

@@ -14,6 +14,8 @@ using System.Data.Linq;
 using System.IO;
 using V5_WinLibs.DBHelper;
 using V5_WinLibs.Utility;
+using V5_WinLibs.Core;
+using V5_Utility.Utility;
 
 namespace V5_DataCollection._Class.Gather {
     /// <summary>
@@ -205,14 +207,14 @@ namespace V5_DataCollection._Class.Gather {
                             }
                         }
                         catch (Exception ex1) {
-                            Log4Helper.Write(LogLevel.Error, ex1.StackTrace, ex1);
+                            Log4Helper.Write(V5_Utility.Utility.LogLevel.Error, ex1.StackTrace, ex1);
                             continue;
                         }
                     }
                 }
                 catch (Exception ex) {
                     //MessageOut("分析网页列表出错!" + ex.Message);
-                    Log4Helper.Write(LogLevel.Error, ex.StackTrace, ex);
+                    Log4Helper.Write(V5_Utility.Utility.LogLevel.Error, ex.StackTrace, ex);
                 }
             }
         }

@@ -16,8 +16,9 @@ using V5_DataCollection._Class.Gather;
 using V5_DataCollection.Forms.Task.TaskData;
 using V5_DataCollection.Forms.Task.Tools;
 using V5_DataCollection._Class.DAL;
-using V5_Utility.Utility;
 using V5_WinLibs.DBHelper;
+using V5_WinLibs.Core;
+using V5_Utility.Utility;
 
 namespace V5_DataCollection.Forms.Task {
     public partial class FrmTaskMain : DockContent {
@@ -115,7 +116,7 @@ namespace V5_DataCollection.Forms.Task {
         public int Get_DataViewID() {
             DataGridViewSelectedRowCollection row = this.dataGridView_TaskList.SelectedRows;
             if (row.Count > 0) {
-                return V5_Utility.Core.StringHelper.Instance.SetNumber(row[0].Cells[0].Value.ToString());
+                return StringHelper.Instance.SetNumber(row[0].Cells[0].Value.ToString());
             }
             return 0;
         }
@@ -425,7 +426,7 @@ namespace V5_DataCollection.Forms.Task {
             DataTable dt = dalLable.GetList(" TaskId=" + ID).Tables[0];
             if (dt != null && dt.Rows.Count > 0) {
                 foreach (DataRow dr in dt.Rows) {
-                    ModelTaskLabel modelLabel = dalLable.GetModel(V5_Utility.Core.StringHelper.Instance.SetNumber(dr["Id"].ToString()));
+                    ModelTaskLabel modelLabel = dalLable.GetModel(StringHelper.Instance.SetNumber(dr["Id"].ToString()));
                     modelLabel.TaskID = currentMaxId;
                     dalLable.Add(modelLabel);
                 }

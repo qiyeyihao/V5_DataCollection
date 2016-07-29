@@ -1,6 +1,6 @@
 ﻿
-using V5.WinControls;
-using V5.WinControls.DataGrid;
+using V5_WinControls;
+using V5_WinControls.DataGrid;
 
 namespace V5_DataCollection.Forms.Tools {
     partial class frmTest {

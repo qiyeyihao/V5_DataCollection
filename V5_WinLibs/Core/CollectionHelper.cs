@@ -11,34 +11,52 @@ namespace V5_WinLibs.Core {
     /// 采集分类
     /// </summary>
     public class CollectionHelper {
-        public CollectionHelper() {
-        }
 
-        #region DownLoad Url
+        #region
         /// <summary>
-        /// 下载文件到本地
+        /// 重写WebClient
         /// </summary>
-        /// <param name="?"></param>
-        public static string DownloadFile(string address, int Timeout) {
-            string tempString = "";
-            try {
-                WebRequest request1 = WebRequest.Create(address);
-                request1.Timeout = Timeout;//加上超时时间
-                WebResponse response1 = request1.GetResponse();
-                long num1 = response1.ContentLength;
-                num1 = ((num1 == -1) || (num1 > 0x7fffffff)) ? ((long)0x7fffffff) : num1;
-                byte[] buffer1 = new byte[Math.Min(0x2000, (int)num1)];
-                Stream stream2 = response1.GetResponseStream();
-                stream2.Position = 0;
-                byte[] vBytes = new byte[stream2.Length];
-                stream2.Read(vBytes, 0, (int)stream2.Length);
-                string s1 = Encoding.UTF8.GetString(vBytes);
-                tempString = s1;
+        public class EaspWebClient : WebClient {
+            private int _timeOut = 10;
+            /// <summary>
+            /// 过期时间
+            /// </summary>
+            public int Timeout {
+                get {
+                    return _timeOut;
+                }
+                set {
+                    if (value <= 0)
+                        _timeOut = 10;
+                    _timeOut = value;
+                }
             }
-            catch {
-                tempString = "";
+            /// <summary>
+            /// 重写GetWebRequest,添加WebRequest对象超时时间
+            /// </summary>
+            /// <param name="address"></param>
+            /// <returns></returns>
+            protected override WebRequest GetWebRequest(Uri address) {
+                HttpWebRequest request = (HttpWebRequest)base.GetWebRequest(address);
+                request.Timeout = 1000 * Timeout;
+                request.ReadWriteTimeout = 1000 * Timeout;
+                return request;
             }
-            return tempString;
+        }
+        #endregion
+
+        private static readonly CollectionHelper m_Instance = new CollectionHelper();
+        /// <summary>
+        /// 
+        /// </summary>
+        public static CollectionHelper Instance {
+            get { return m_Instance; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public CollectionHelper() {
+
         }
         /// <summary>
         /// 得到页面的内容     $UrlIsFalse$    $GetFalse$
@@ -47,7 +65,7 @@ namespace V5_WinLibs.Core {
         /// <param name="timeout">返回超时 单位 毫秒</param>
         /// <param name="EnCodeType">编码 gb2312 等</param>
         /// <returns></returns>
-        public static string GetHttpPage(string url, int timeout, Encoding EnCodeType) {
+        public string GetHttpPage(string url, int timeout, Encoding EnCodeType) {
             string strResult = string.Empty;
             if (url.Length < 10)
                 return "$UrlIsFalse$";
@@ -68,7 +86,7 @@ namespace V5_WinLibs.Core {
         /// <summary>
         /// 自动获取网页内容  $UrlIsFalse$    $GetFalse$
         /// </summary>
-        public static string GetHttpPage(string url, int timeout) {
+        public string GetHttpPage(string url, int timeout) {
             string strResult = string.Empty;
             if (url.Length < 10)
                 return "$UrlIsFalse$";
@@ -89,25 +107,30 @@ namespace V5_WinLibs.Core {
             return strResult;
         }
 
-        public static string GetHttpPage(string url, int timeout, string webCharSet) {
+        /// <summary>
+        /// 得到页面的内容 url错误$UrlIsFalse$ 获取错误$GetFalse$
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="timeout"></param>
+        /// <param name="EnCodeType"></param>
+        /// <returns></returns>
+        public string GetHttpPage(string url, int timeout, string EnCodeType) {
             string strResult = string.Empty;
             if (url.Length < 10)
                 return "$UrlIsFalse$";
             try {
-                WebClient wc = new WebClient(); //创建WebClient实例myWebClient
-                wc.Credentials = CredentialCache.DefaultCredentials;
-                byte[] myDataBuffer = wc.DownloadData(url);
-                string strWebData = Encoding.Default.GetString(myDataBuffer);
-                strWebData = Encoding.GetEncoding(webCharSet).GetString(myDataBuffer);
-                strResult = strWebData;
+                EaspWebClient MyWebClient = new EaspWebClient();
+                MyWebClient.Credentials = CredentialCache.DefaultCredentials;
+                MyWebClient.Encoding = Encoding.GetEncoding(EnCodeType);
+                MyWebClient.Timeout = timeout;
+                strResult = MyWebClient.DownloadString(url);
             }
             catch (Exception ex) {
-                strResult = "$GetFalse$";
+
+                strResult = "$GetFalse$_" + ex.Message;
             }
             return strResult;
         }
-        #endregion
-
 
         /// <summary>
         /// 获取内容
@@ -118,7 +141,7 @@ namespace V5_WinLibs.Core {
         /// <param name="inStart">是否包含开始字符</param>
         /// <param name="inEnd">是否包含结束字符</param>
         /// <returns>返回匹配的字符串</returns>
-        public static string GetBody(string pageStr, string strStart, string strEnd, bool inStart, bool inEnd) {
+        public string GetBody(string pageStr, string strStart, string strEnd, bool inStart, bool inEnd) {
             pageStr = pageStr.Trim();
             int start = pageStr.IndexOf(strStart);
             if (strStart.Length == 0 || start < 0)
@@ -141,7 +164,7 @@ namespace V5_WinLibs.Core {
         /// <param name="sStr">字符</param>
         /// <param name="Patrn">表达式</param>
         /// <returns></returns>
-        public static string[] CutStr(string sStr, string Patrn) {
+        public string[] CutStr(string sStr, string Patrn) {
             string[] RsltAry;
             Regex tmpreg = new Regex(Patrn, RegexOptions.Compiled | RegexOptions.IgnoreCase);
             MatchCollection sMC = tmpreg.Matches(sStr);
@@ -161,17 +184,14 @@ namespace V5_WinLibs.Core {
         /// <summary>
         /// 格式化地址
         /// </summary>
-        /// <param name="BaseUrl">http://www.v5soft.com</param>
-        /// <param name="theUrl">/index.html</param>
+        /// <param name="BaseUrl"></param>
+        /// <param name="theUrl"></param>
         /// <returns></returns>
-        public static string FormatUrl(string BaseUrl, string theUrl) {
+        public string FormatUrl(string BaseUrl, string theUrl) {
             int pathLevel = 0;
             string hostName;
             theUrl = theUrl.ToLower();
-            hostName = BaseUrl;
-            if (BaseUrl.IndexOf("/", 8) > -1) {
-                hostName = BaseUrl.Substring(0, BaseUrl.IndexOf("/", 8));
-            }
+            hostName = BaseUrl.Substring(0, BaseUrl.IndexOf("/", 8));
             BaseUrl = BaseUrl.Substring(0, BaseUrl.LastIndexOf("/"));
             if (theUrl.StartsWith("./")) {
                 theUrl = theUrl.Remove(0, 1);
@@ -203,7 +223,7 @@ namespace V5_WinLibs.Core {
         /// <param name="strStart">开始字符串</param>
         /// <param name="strEnd">结束字符串</param>
         /// <returns>匹配导的所有连接 ArrayList类型</returns>
-        public static ArrayList GetArray(string pageStr, string strStart, string strEnd) {
+        public ArrayList GetArray(string pageStr, string strStart, string strEnd) {
             ArrayList linkArray = new ArrayList();
             int start = pageStr.IndexOf(strStart);
             if (strStart.Length == 0 || start < 0) {
@@ -234,7 +254,7 @@ namespace V5_WinLibs.Core {
         }
 
         /// <summary>
-        /// 替换远程图片并保存图片
+        /// 替换远程图片路径为本地路径
         /// </summary>
         /// <param name="pageStr"></param>
         /// <param name="SavePath"></param>
@@ -242,7 +262,7 @@ namespace V5_WinLibs.Core {
         /// <param name="webUrl"></param>
         /// <param name="isSave"></param>
         /// <returns></returns>
-        public static ArrayList ReplaceSaveRemoteFile(string pageStr, string SavePath, string CDir, string webUrl, string isSave) {
+        public ArrayList ReplaceSaveRemoteFile(string pageStr, string SavePath, string CDir, string webUrl, string isSave) {
             ArrayList replaceArray = new ArrayList();
             Regex imgReg = new Regex(@"<img.+?[^\>]>", RegexOptions.IgnoreCase);
             MatchCollection matches = imgReg.Matches(pageStr);
@@ -277,11 +297,9 @@ namespace V5_WinLibs.Core {
             TempStr = TempStr.Replace("\"", "");
             TempStr = TempStr.Replace("'", "");
             TempStr = TempStr.Replace(" ", "");
-            SavePath = SavePath + "/UserFiles/";// +DirFileIO.GetDateDir();
-            //SavePath = SavePath + "/UserFiles/" + DirFileIO.GetDateDir();
+            //SavePath = SavePath + "/UploadFiles/" + Easp.Fso.GetDateDir();
             if (!System.IO.Directory.Exists(SavePath))
                 System.IO.Directory.CreateDirectory(SavePath);
-
             //去掉重复图片
             TempArr = TempStr.Split(new string[] { "$Array$" }, StringSplitOptions.None);
             TempStr = string.Empty;
@@ -300,10 +318,11 @@ namespace V5_WinLibs.Core {
                 if (isSave == "1") {
                     string fileType = RemoteFileUrl.Substring(RemoteFileUrl.LastIndexOf('.'));
                     string filename = string.Empty;
-                    //filename = DirFileIO.GetDateFile();
+                    //filename = Easp.Fso.GetDateFile();
                     filename += fileType;
                     if (SaveRemotePhoto(SavePath + "/" + filename, RemoteFileUrl)) {
-                        // RemoteFileUrl = CDir + "/UserFiles/" + DirFileIO.GetDateDir() + "/" + filename;
+
+                        //RemoteFileUrl = CDir + "/UploadFiles/" + Easp.Fso.GetDateDir() + "/" + filename;
                     }
                 }
                 pageStr = imgReg.Replace(pageStr, RemoteFileUrl);
@@ -321,12 +340,12 @@ namespace V5_WinLibs.Core {
         }
 
         /// <summary>
-        /// 替换字符为远程的链接  比如 index.aspx 替换为http://www.qbzw.com/index.aspx
+        /// 替换字符为远程的链接  比如 index.aspx 替换为http://www.v5soft.com/index.aspx
         /// </summary>
-        /// <param name="PrimitiveUrl">参考Url/param>
-        /// <param name="ConsultUrl">要替换的url</param>
+        /// <param name="PrimitiveUrl"></param>
+        /// <param name="ConsultUrl"></param>
         /// <returns></returns>
-        public static string DefiniteUrl(string PrimitiveUrl, string ConsultUrl) {
+        public string DefiniteUrl(string PrimitiveUrl, string ConsultUrl) {
             if (ConsultUrl.Substring(0, 7) != "http://")
                 ConsultUrl = "http://" + ConsultUrl;
             ConsultUrl = ConsultUrl.Replace(@"\", "/");
@@ -426,12 +445,12 @@ namespace V5_WinLibs.Core {
         }
 
         /// <summary>
-        /// 保存远程图片到本地
+        /// 保存远程图片
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <param name="RemoteFileUrl"></param>
+        /// <param name="fileName">本地文件名称</param>
+        /// <param name="RemoteFileUrl">远程文件地址</param>
         /// <returns></returns>
-        public static bool SaveRemotePhoto(string fileName, string RemoteFileUrl) {
+        public bool SaveRemotePhoto(string fileName, string RemoteFileUrl) {
             try {
                 WebRequest request = WebRequest.Create(RemoteFileUrl);
                 request.Timeout = 20000;
@@ -444,15 +463,41 @@ namespace V5_WinLibs.Core {
                 return false;
             }
         }
-
         /// <summary>
-        /// 过滤脚本于标签
+        /// 保存远程图片
         /// </summary>
-        /// <param name="ConStr">字符串</param>
-        /// <param name="TagName">标签名称</param>
-        /// <param name="FType">类型 1.2.3</param>
+        /// <param name="fileName">本地文件名称</param>
+        /// <param name="RemoteFileUrl">远程文件地址</param>
+        /// <param name="RefererUrl">远程Referer</param>
         /// <returns></returns>
-        public static string ScriptHtml(string ConStr, string TagName, int FType) {
+        public bool SaveRemotePhoto(string fileName, string RemoteFileUrl, string RefererUrl) {
+            try {
+                //HttpWebRequest request = WebRequest.Create(RemoteFileUrl);
+                //request.Timeout = 20000;
+                //request.Headers.Add("Referer", RefererUrl);
+                //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(RemoteFileUrl);
+                //request.Timeout = 20000;
+                //request.Referer = RefererUrl;
+                //Stream stream = request.GetResponse().GetResponseStream();
+                //Image getImage = Image.FromStream(stream);
+                //getImage.Save(fileName);
+                WebClient wc = new WebClient();
+                //wc.Headers.Add("Referer", RefererUrl);
+                wc.DownloadFile(RemoteFileUrl, fileName);
+                return true;
+            }
+            catch (Exception) {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 移除制定 html标签代码
+        /// </summary>
+        /// <param name="ConStr"></param>
+        /// <param name="TagName"></param>
+        /// <param name="FType"></param>
+        /// <returns></returns>
+        public string ScriptHtml(string ConStr, string TagName, int FType) {
             Regex myReg;
             switch (FType) {
                 case 1:
@@ -473,48 +518,121 @@ namespace V5_WinLibs.Core {
             return ConStr;
         }
         /// <summary>
-        /// 过滤所有标签
+        /// 移除所有Html标签
         /// </summary>
         /// <param name="ConStr"></param>
         /// <returns></returns>
-        public static string NoHtml(string ConStr) {
+        public string NoHtml(string ConStr) {
             Regex myReg = new Regex(@"(\<.[^\<]*\>)", RegexOptions.IgnoreCase);
             ConStr = myReg.Replace(ConStr, "");
             myReg = new Regex(@"(\<\/[^\<]*\>)", RegexOptions.IgnoreCase);
             ConStr = myReg.Replace(ConStr, "");
-            ConStr = ConStr.Replace("\r\n", "");
-            ConStr = ConStr.Replace(" ", "");
             return ConStr;
         }
         /// <summary>
-        /// 获取图片地址
+        /// 截取Html内容
+        /// </summary>
+        /// <param name="pageStr"></param>
+        /// <param name="strStart"></param>
+        /// <param name="strEnd"></param>
+        /// <returns></returns>
+        public string GetPaing(string pageStr, string strStart, string strEnd) {
+            int end = pageStr.IndexOf(strEnd);
+            if (strEnd.Length == 0 || end < 0)
+                return "$EndFalse$";
+            pageStr = pageStr.Substring(0, end);
+            int start = pageStr.LastIndexOf(strStart);
+            if (strStart.Length == 0 || start < 0 || start > end)
+                return "$StartFalse$";
+            pageStr = pageStr.Substring(start + strStart.Length);
+            pageStr = pageStr.Replace("\"", "");
+            pageStr = pageStr.Replace("'", "");
+            pageStr = pageStr.Replace(" ", "");
+            pageStr = pageStr.Trim();
+            return pageStr;
+        }
+
+
+        /// <summary>
+        /// 自动上传文本中的图片
+        /// </summary>
+        /// <param name="content">文本内容</param>
+        /// <param name="path">保存路径</param>
+        /// <returns></returns>
+        public string AutoUploadStringPhoto(string content, string path) {
+            //自动保存远程图片
+            WebClient client = new WebClient();
+            //备用Reg:<img.*?src=([\"\'])(http:\/\/.+\.(jpg|gif|bmp|bnp))\1.*?>
+            Regex reg = new Regex("IMG[^>]*?src\\s*=\\s*(?:\"(?<1>[^\"]*)\"|'(?<1>[^\']*)')", RegexOptions.IgnoreCase);
+            MatchCollection m = reg.Matches(content);
+            foreach (Match math in m) {
+                string imgUrl = math.Groups[1].Value;
+                //在原图片名称前加YYMMDD重名名并上传
+                Regex regName = new Regex(@"\w+.(?:jpg|gif|bmp|png)", RegexOptions.IgnoreCase);
+                string strNewImgName = DateTime.Now.ToShortDateString().Replace("-", "") + regName.Match(imgUrl).ToString();
+                try {
+                    //保存图片
+                    client.DownloadFile(imgUrl, (path + strNewImgName));
+                }
+                catch {
+                    //return ex.Message;
+                }
+                finally {
+                }
+                client.Dispose();
+            }
+            return "远程图片保存成功，保存路径为" + path;
+        }
+
+        #region "远程保存图片到本地"
+        /// <summary>
+        /// 下载图片到本地
+        /// </summary>
+        /// <param name="_strHTML"></param>
+        /// <param name="_Path"></param>
+        /// <returns></returns>
+        public string SaveUrlPics(string _strHTML, string _Path) {
+            try {
+                string[] imgurlAry = GetImgTag(_strHTML);
+                string ReFilePath = _Path;
+                for (int i = 0; i < imgurlAry.Length; i++) {
+                    WebClient wc = new WebClient();
+                    wc.DownloadFile(imgurlAry[i], ReFilePath + "/" + imgurlAry[i].Substring(imgurlAry[i].LastIndexOf("/") + 1));
+                    _strHTML = _strHTML.Replace(imgurlAry[i], _Path + "/" + imgurlAry[i].Substring(imgurlAry[i].LastIndexOf("/") + 1));
+                }
+                return _strHTML;
+            }
+            catch {
+                return _strHTML;
+            }
+        }
+        /// <summary>
+        /// 获取图片链接标签
         /// </summary>
         /// <param name="_strHTML"></param>
         /// <returns></returns>
-        public static string[] GetImgTag(string _strHTML) {
-            Regex reg = new Regex("IMG[^>]*?src\\s*=\\s*(?:\"(?<1>[^\"]*)\"|'(?<1>[^\']*)')", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public string[] GetImgTag(string _strHTML) {
+            Regex reg = new Regex("<img.+?>", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             string[] strAry = new string[reg.Matches(_strHTML).Count];
             int i = 0;
             foreach (Match match in reg.Matches(_strHTML)) {
                 strAry[i] = GetImgUrl(match.Value);
-                i++;
             }
             return strAry;
         }
         /// <summary>
-        /// 获取图片地址
+        /// 获取图片标签
         /// </summary>
         /// <param name="imgTagStr"></param>
         /// <returns></returns>
-        private static string GetImgUrl(string imgTagStr) {
-            //
+        private string GetImgUrl(string imgTagStr) {
             string str = "";
-            //Regex reg = new Regex("http://.+.(?:jpg|gif|bmp|png)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-            Regex reg = new Regex("src\\s*=[\"|'](.+.[gif|jpg|bmp|jpeg|psd|png|svg|dxf|wmf|tiff])[\"|']", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex reg = new Regex("http://.+.(?:jpg|gif|bmp|png)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             foreach (Match match in reg.Matches(imgTagStr)) {
-                str = match.Groups[1].Value;
+                str = match.Value;
             }
             return str;
         }
+        #endregion
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Drawing;
 
-namespace V5.WinControls._Class.V5RichTextBox
+namespace V5_WinControls._Class.V5RichTextBox
 {
     internal sealed class NativeMethods
     {

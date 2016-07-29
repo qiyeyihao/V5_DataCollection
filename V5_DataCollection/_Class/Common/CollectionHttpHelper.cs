@@ -1,11 +1,10 @@
 ﻿
-using DotNet4.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using V5_Utility.Core;
+using V5_WinLibs.Core;
 
 namespace V5_DataCollection._Class.Common {
 

@@ -1,4 +1,4 @@
-﻿namespace V5.WinControls.Pager
+﻿namespace V5_WinControls.Pager
 {
     partial class Pager
     {

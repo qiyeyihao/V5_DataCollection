@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace V5_Apps.Plugins.Qvod._Class {
+namespace V5_WinLibs.Core {
     /// <summary>
     /// 多线程封装
     /// </summary>
-    public class ThreadMultiHelper {
+    public class ThreadMultiHelper1 {
         #region 变量
 
         public delegate void DelegateComplete();
@@ -38,7 +38,7 @@ namespace V5_Apps.Plugins.Qvod._Class {
         /// 构造函数
         /// </summary>
         /// <param name="taskcount">任务个数</param>
-        public ThreadMultiHelper(int taskcount) {
+        public ThreadMultiHelper1(int taskcount) {
             _taskCount = taskcount;
         }
         /// <summary>
@@ -46,7 +46,7 @@ namespace V5_Apps.Plugins.Qvod._Class {
         /// </summary>
         /// <param name="taskcount">任务个数</param>
         /// <param name="threadCount">线程个数</param>
-        public ThreadMultiHelper(int taskcount, int threadCount) {
+        public ThreadMultiHelper1(int taskcount, int threadCount) {
             _taskCount = taskcount;
             _threadCount = threadCount;
         }
