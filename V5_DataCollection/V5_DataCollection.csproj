@@ -244,13 +244,6 @@
     <Compile Include="_Class\DbObjects\SQL\DbObject.cs" />
     <Compile Include="_Class\Plan\JobDetailHelper.cs" />
     <Compile Include="_Class\Plan\PlanTaskHelper.cs" />
-    <Compile Include="Forms\Publish\cPublishModuleItem.cs" />
-    <Compile Include="Forms\Publish\frmPublishEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Publish\frmPublishEdit.Designer.cs">
-      <DependentUpon>frmPublishEdit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Task\DataBaseConfig\frmDataBaseConfigAccess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,9 +415,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LeftTree\frmLeftTreeClass.resx">
       <DependentUpon>frmLeftTreeClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Publish\frmPublishEdit.resx">
-      <DependentUpon>frmPublishEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Task\DataBaseConfig\frmDataBaseConfigAccess.resx">
       <DependentUpon>frmDataBaseConfigAccess.cs</DependentUpon>
