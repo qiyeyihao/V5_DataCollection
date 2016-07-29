@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using V5_DataPlugins.Model;
 using V5_Utility.Core;
 using V5_WinUtility.Expand;
+using V5_WinLibs.Core;
 
 namespace V5_DataPublishModuleEdit {
     public partial class frmMain : Form {

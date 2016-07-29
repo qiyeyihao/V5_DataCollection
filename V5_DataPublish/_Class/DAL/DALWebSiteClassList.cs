@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using V5_DataPublish._Class;
-using V5_DBUtility.Dapper;
+using V5_WinLibs.DBHelper;
 
 namespace V5_DAL {
     public class DALWebSiteClassList {

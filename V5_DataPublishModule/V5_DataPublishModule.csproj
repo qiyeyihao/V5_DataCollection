@@ -79,17 +79,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\V5_Utility\V5_Utility\V5_Utility.csproj">
-      <Project>{C3EA9A7F-5AF2-49E5-9A9B-8E7A9572EEAC}</Project>
-      <Name>V5_Utility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\V5_Utility\V5_WinUtility\V5_WinUtility.csproj">
-      <Project>{476BF89D-39CD-46FF-8537-333CE1BF7BA8}</Project>
-      <Name>V5_WinUtility</Name>
-    </ProjectReference>
     <ProjectReference Include="..\V5_DataPlugins\V5_Plugins.csproj">
       <Project>{30b8191a-1162-4f24-8549-9c16cb555cff}</Project>
       <Name>V5_Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\V5_WinLibs\V5_WinLibs.csproj">
+      <Project>{db2ccfe4-81da-4941-8fba-bf8692300326}</Project>
+      <Name>V5_WinLibs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

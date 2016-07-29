@@ -75,7 +75,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Interop.SHDocVw">
-      <HintPath>..\..\..\V5_Libs\Interop.SHDocVw.dll</HintPath>
+      <HintPath>..\V5_Libs\Interop.SHDocVw.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

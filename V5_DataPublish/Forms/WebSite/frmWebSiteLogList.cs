@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using V5_DataPublish._Class;
 using System.IO;
-using V5_DBUtility.Dapper;
+using V5_WinLibs.DBHelper;
 
 namespace V5_DataPublish.Forms.WebSite {
     public partial class frmWebSiteLogList : BaseForm {

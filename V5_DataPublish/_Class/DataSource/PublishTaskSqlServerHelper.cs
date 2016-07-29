@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using V5_DataPlugins;
 using V5_DataPlugins.Model;
-using V5_DBUtility.Maticsoft;
+using V5_WinLibs.DBUtility;
 
 namespace V5_DataPublish._Class.DataSource {
     //使用SqlServer数据源发布数据

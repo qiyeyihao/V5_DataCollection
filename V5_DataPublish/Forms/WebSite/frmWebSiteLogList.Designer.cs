@@ -1,4 +1,4 @@
-﻿using V5_WinUtility.Controls;
+﻿using V5_WinControls.Pager;
 
 namespace V5_DataPublish.Forms.WebSite {
     partial class frmWebSiteLogList {

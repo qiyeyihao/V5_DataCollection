@@ -10,7 +10,7 @@ using System.Web;
 using V5_Utility.Core;
 using V5_Utility;
 using V5_Utility.Utility;
-using V5_Utility.Utility.GetMainContent;
+using V5_WinLibs.GetMainContent;
 
 namespace V5_DataPublish._Class.BaiduHelper {
     /// <summary>

@@ -55,41 +55,41 @@
     <StartupObject>V5_DataPublish.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\FSharp.Core.dll</HintPath>
+    <Reference Include="FSharp.Core, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.4.0.0.1\lib\net40\FSharp.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.4, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.4\lib\Net40\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ivony.Core, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Ivony.Core.1.1.1\lib\Ivony.Core.dll</HintPath>
+      <HintPath>..\packages\Ivony.Core.1.1.1\lib\Ivony.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ivony.Html, Version=3.0.12.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Ivony.Html.3.0.12.0\lib\net40\Ivony.Html.dll</HintPath>
+      <HintPath>..\packages\Jumony.Core.3.0.15\lib\Ivony.Html.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ivony.Html.Parser, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Ivony.Html.Parser.3.0.0.0\lib\net40\Ivony.Html.Parser.dll</HintPath>
+      <HintPath>..\packages\Jumony.Core.3.0.15\lib\Ivony.Html.Parser.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ivony.Html.Parser.Regulars, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Ivony.Html.Parser.Regulars.1.0.0\lib\Ivony.Html.Parser.Regulars.dll</HintPath>
+      <HintPath>..\packages\Jumony.Core.3.0.15\lib\Ivony.Html.Parser.Regulars.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ScrapySharp, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\ScrapySharp.dll</HintPath>
+      <HintPath>..\packages\ScrapySharp.2.6.2\lib\net40\ScrapySharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ScrapySharp.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\ScrapySharp.Core.dll</HintPath>
+      <HintPath>..\packages\ScrapySharp.2.6.2\lib\net40\ScrapySharp.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -104,26 +104,18 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="XmlDatabase.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7169c13cb8ad33c1, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\XMLDatabase.2.1\lib\net40\XmlDatabase.Core.dll</HintPath>
+      <HintPath>..\packages\XMLDatabase.2.1\lib\net40\XmlDatabase.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\V5_Utility\V5_DBUtility\V5_DBUtility.csproj">
-      <Project>{392784c0-570a-4427-b3dc-cc22a1774610}</Project>
-      <Name>V5_DBUtility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\V5_Utility\V5_Utility\V5_Utility.csproj">
-      <Project>{c3ea9a7f-5af2-49e5-9a9b-8e7a9572eeac}</Project>
-      <Name>V5_Utility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\V5_Utility\V5_WinUtility\V5_WinUtility.csproj">
-      <Project>{476bf89d-39cd-46ff-8537-333ce1bf7ba8}</Project>
-      <Name>V5_WinUtility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\V5_DataPlugins\V5_Plugins.csproj">
+    <ProjectReference Include="..\V5_DataPlugins\V5_Plugins.csproj">
       <Project>{30b8191a-1162-4f24-8549-9c16cb555cff}</Project>
       <Name>V5_Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\V5_WinLibs\V5_WinLibs.csproj">
+      <Project>{db2ccfe4-81da-4941-8fba-bf8692300326}</Project>
+      <Name>V5_WinLibs</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -274,12 +266,12 @@
     <Compile Include="_Class\Common.cs" />
     <Compile Include="_Class\DAL\DALWebSiteClassList.cs" />
     <Compile Include="_Class\Model\ModelWebSiteChecked.cs" />
-    <Compile Include="_Class\Publish\PublishCommon.cs" />
-    <Compile Include="_Class\Publish\PublishFileSource.cs" />
-    <Compile Include="_Class\Publish\PublishThread.cs" />
-    <Compile Include="_Class\Publish\PublishTask.cs" />
     <Compile Include="_Class\DataSource\PublishTaskSqlServerHelper.cs" />
     <Compile Include="_Class\ModelTreeClass.cs" />
+    <Compile Include="_Class\Publish\PublishCommon.cs" />
+    <Compile Include="_Class\Publish\PublishFileSource.cs" />
+    <Compile Include="_Class\Publish\PublishTask.cs" />
+    <Compile Include="_Class\Publish\PublishThread.cs" />
     <Compile Include="_Class\Utility.cs" />
     <Compile Include="_Class\WebSiteClassHelper.cs" />
     <Compile Include="_Class\WebSiteHelper.cs" />
@@ -290,6 +282,7 @@
     <None Include="Config\SiteInfo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages - 复制.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -381,6 +374,7 @@
     <Content Include="orange.ico" />
     <Content Include="System\Encoding.txt" />
     <Content Include="System\ReplaceWords.txt" />
+    <Content Include="xmldatabase-readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
