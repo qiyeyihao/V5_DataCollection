@@ -552,7 +552,6 @@
     <Content Include="Images\背景1.png" />
     <Content Include="Images\背景2.png" />
     <Content Include="Doc\ReadMe.txt" />
-    <Content Include="xmldatabase-readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -249,9 +249,6 @@
     <Compile Include="XmlConfig\DataSourceConfigItem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Config\lognet4.config" />
     <None Include="packages.config" />
